@@ -11,15 +11,15 @@ public final class DepositApi {
 	private DepositApi() {}
  	
 	public static Response post(Payments requestUsers) {
-		return RestResource.post(requestUsers, Route.USERS);
+		return RestResource.post(requestUsers, Route.DEPOSIT);
 	}
 	
-	public static Response get(int pageNo) {
-		return RestResource.get(Route.TRANSACTIONS, pageNo);
+	public static Response get(int userId) {
+		return RestResource.get(userId);
 	}
 	
 	public static Response delete() {
-		return RestResource.delete(Route.TRANSACTIONS);
+		return RestResource.delete(Route.DEPOSIT);
 	}
 }
 

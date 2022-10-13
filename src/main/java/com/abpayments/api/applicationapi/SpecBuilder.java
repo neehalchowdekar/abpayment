@@ -17,7 +17,7 @@ public final class SpecBuilder {
 	public static RequestSpecification getRequestSpec() {
 		return new RequestSpecBuilder()
 				.setBaseUri(ConfigFactory.getConfig().baseUri())
-				.setBasePath(Route.API)
+				.setBasePath(Route.DEPOSIT)
 				.setContentType(ContentType.JSON)
 				.log(LogDetail.ALL)
 				.build();

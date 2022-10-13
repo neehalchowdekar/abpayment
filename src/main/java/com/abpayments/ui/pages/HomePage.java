@@ -1,6 +1,8 @@
 package com.abpayments.ui.pages;
 
-public class HomePage {
+import com.abpayments.ui.driver.BaseTest;
+
+public class HomePage extends BaseTest{
 	
 	
 	public ProductPage navigateToProduct() {

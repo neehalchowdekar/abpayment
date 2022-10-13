@@ -1,0 +1,7 @@
+{
+	"Payment_options": [
+		"NetBanking",
+		"PayTM",
+		"UPI"
+	]
+}

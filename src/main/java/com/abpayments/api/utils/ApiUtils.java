@@ -1,14 +1,20 @@
 package com.abpayments.api.utils;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 import java.util.Map.Entry;
 import java.util.function.BinaryOperator;
 
-public final class ApiUtils {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+public class ApiUtils {
 	
-	private ApiUtils() {}
 	
 	public static int randomNumberGen(int min, int max) {
 		BinaryOperator<Integer> bi = (a, b) -> new Random().nextInt(b - a) + a;
@@ -17,22 +23,34 @@ public final class ApiUtils {
 	
 	
 	
-	public static int getuserid(int userid) {
+	public static int getPaymentPath(int userid) {
 		int result = userid % 3;
 		return result;
 	}
 	
-	public static String getPaths(int userid) {
+	public static JSONArray getPaths(int userid) throws JSONException {
 		switch (userid) {
 		case 0:
-			return "Path A";
+			return new JSONArray("[\r\n"
+					+ "		\"PayTM\",\r\n"
+					+ "		\"UPI\",\r\n"
+					+ "		\"NetBanking\"\r\n"
+					+ "	]");
 		case 1:
-			return "Path B";
+			return new JSONArray("[\r\n"
+					+ "		\"UPI\",\r\n"
+					+ "		\"PayTM\",\r\n"
+					+ "		\"NetBanking\"\r\n"
+					+ "	]");
 		case 2:
-			return "Path C";
-		default:
-			return "user id invalid";
+			return new JSONArray("[\r\n"
+					+ "		\"NetBanking\",\r\n"
+					+ "		\"PayTM\",\r\n"
+					+ "		\"UPI\"\r\n"
+					+ "	]");
+		
 		}
+		return new JSONArray();
 	}
 	
 	public static int majority(int[] arr) {

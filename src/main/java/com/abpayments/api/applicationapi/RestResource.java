@@ -23,11 +23,21 @@ public final class RestResource {
 	}
 	
 	// Read
-	public static Response get(String path, int pageNo) {
+	public static Response get() {
 		return given(SpecBuilder.getRequestSpec())
 				.when()
-				.queryParam("page", pageNo)
-				.get(path)
+				.get()
+				.then()
+				.spec(SpecBuilder.getResponseSpec())
+				.extract()
+				.response();
+	}
+	
+	
+	public static Response get(int userId) {
+		return given(SpecBuilder.getRequestSpec())
+				.when()
+				.get("/" + userId)
 				.then()
 				.spec(SpecBuilder.getResponseSpec())
 				.extract()

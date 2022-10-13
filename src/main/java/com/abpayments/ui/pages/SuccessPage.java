@@ -11,7 +11,7 @@ public class SuccessPage extends BaseTest{
 	private WebElement order;
 	
 	public String getOrderId() {
-		return order.getText();
+		return getText(order);
 	}
 
 }
